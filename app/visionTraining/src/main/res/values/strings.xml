@@ -6,15 +6,15 @@
     <!-- Title of preference activity -->
     <string name="preference_activity_title">Settings</string>
     <!-- Name of extension, shown in preferences -->
-    <string name="extension_name">Vision Training for SW2</string>
+    <string name="extension_name">Vision Trainer for SW2</string>
     <!-- Configuration title shown in preferences -->
-    <string name="configuration_text">Vision Training for SW2 Settings</string>
+    <string name="configuration_text">Vision Trainer for SW2 Settings</string>
     <!-- Menu option shown in preferences -->
     <string name="preference_option_read_me">About Vision Training</string>
     <!-- Read me text shown in dialog -->
     <string name="preference_option_read_me_txt">Vision training, also known as vision therapy, is used to improve vision skills such as eye movement control and eye coordination. It involves a series of procedures carried out in both home and office settings, usually under professional supervision by an orthoptist or optometrist.</string>
 
-    <string name="start_training">Start training</string>
+    <string name="start_training">Start Training</string>
     <string name="welldone">Well done!</string>
 
 </resources>

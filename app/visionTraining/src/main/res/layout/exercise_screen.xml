@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="@dimen/smart_watch_2_control_width"
                 android:layout_height="@dimen/smart_watch_2_control_height"
-                android:background="@android:color/darker_gray"
+                android:background="@android:color/white"
                 tools:ignore="ContentDescription,PxUsage" >
 
     <TextView
@@ -11,8 +11,10 @@
             android:layout_width="110px"
             android:layout_height="@dimen/smart_watch_2_statusbar_height"
             android:textSize="@dimen/smart_watch_2_text_size_medium"
-            android:textColor="#000000"
-            android:text="1/7"/>
+            android:textColor="#ffffff"
+            android:background="#ff585858"
+            android:text="1/7"
+            android:padding="@dimen/top_panel_margin"/>
 
     <TextView
             android:id="@+id/exercise_timer"
@@ -21,8 +23,10 @@
             android:textSize="@dimen/smart_watch_2_text_size_medium"
             android:gravity="right"
             android:text="23:00"
-            android:textColor="#000000"
-            android:layout_alignParentRight="true"/>
+            android:textColor="#ffffff"
+            android:background="#ff585858"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/top_panel_margin"/>
 
     <TextView
             android:id="@+id/exercise_name"
@@ -35,14 +39,14 @@
             android:layout_above="@+id/pause_training_button"
             />
 
-    <TextView
+    <ImageView
             android:id="@+id/pause_training_button"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="pause button"
+            android:layout_height="@dimen/button_height"
+            android:src="@drawable/ic_action_av_pause"
             android:layout_alignParentBottom="true"
             android:gravity="center"
-            android:background="#ff149dbb"
+            android:background="#ffff2a28"
             android:clickable="true"/>
 
 </RelativeLayout>

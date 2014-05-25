@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height">55px</dimen>
+    <dimen name="top_panel_margin">4px</dimen>
+</resources>

@@ -28,12 +28,7 @@ class ScreenControl extends ControlExtension {
     private final ScheduledExecutorService _scheduler = Executors.newScheduledThreadPool(1);
     private AppScreen _currentAppScreen = AppScreen.START;
     private int _currentExerciseIndex = 0;
-
-    private List<Exercise> _exercises = Arrays.asList(
-        new Exercise("Ex 1", 5),
-        new Exercise("Ex 2", 5),
-        new Exercise("Ex 3", 5)
-    );
+    private List<Exercise> _exercises = ExerciseConfig.EXERCISES;
 
 
     /**
