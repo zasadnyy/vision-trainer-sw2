@@ -14,7 +14,7 @@
     <!-- Read me text shown in dialog -->
     <string name="preference_option_read_me_txt">Vision training, also known as vision therapy, is used to improve vision skills such as eye movement control and eye coordination. It involves a series of procedures carried out in both home and office settings, usually under professional supervision by an orthoptist or optometrist.</string>
 
-    <string name="start_training">Start Training</string>
-    <string name="welldone">Well done!</string>
+    <string name="start_training">Почати тренування</string>
+    <string name="welldone">Чудова робота!</string>
 
 </resources>

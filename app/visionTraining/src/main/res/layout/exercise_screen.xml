@@ -4,7 +4,7 @@
                 android:layout_width="@dimen/smart_watch_2_control_width"
                 android:layout_height="@dimen/smart_watch_2_control_height"
                 android:background="@android:color/white"
-                tools:ignore="ContentDescription,PxUsage" >
+                tools:ignore="ContentDescription,PxUsage">
 
     <TextView
             android:id="@+id/exercise_number"
@@ -36,17 +36,35 @@
             android:text="Winking"
             android:gravity="center"
             android:textColor="#000000"
-            android:layout_above="@+id/pause_training_button"
+            android:layout_above="@+id/buttons_layout"
             />
 
-    <ImageView
-            android:id="@+id/pause_training_button"
+    <LinearLayout
+            android:id="@+id/buttons_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_height"
-            android:src="@drawable/ic_action_av_pause"
+            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:gravity="center"
-            android:background="#ffff2a28"
-            android:clickable="true"/>
+            android:weightSum="2">
+
+        <ImageView
+                android:id="@+id/pause_training_button"
+                android:layout_width="0px"
+                android:layout_height="@dimen/button_height"
+                android:src="@drawable/ic_action_av_pause"
+                android:gravity="center"
+                android:background="#ffff2a28"
+                android:clickable="true"
+                android:layout_weight="1"/>
+        <ImageView
+                android:id="@+id/next_exercise_button"
+                android:layout_width="0px"
+                android:layout_height="@dimen/button_height"
+                android:src="@drawable/ic_action_av_next"
+                android:gravity="center"
+                android:background="#ff2c292b"
+                android:clickable="true"
+                android:layout_weight="1"/>
+    </LinearLayout>
 
 </RelativeLayout>

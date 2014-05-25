@@ -5,17 +5,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import ua.org.zasadnyy.visiontrainer.model.Exercise;
 import com.sonyericsson.extras.liveware.aef.control.Control;
 import com.sonyericsson.extras.liveware.extension.util.control.ControlExtension;
 import com.sonyericsson.extras.liveware.extension.util.control.ControlObjectClickEvent;
 
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+
+import ua.org.zasadnyy.visiontrainer.model.Exercise;
 
 class ScreenControl extends ControlExtension {
 
@@ -28,7 +29,9 @@ class ScreenControl extends ControlExtension {
     private final ScheduledExecutorService _scheduler = Executors.newScheduledThreadPool(1);
     private AppScreen _currentAppScreen = AppScreen.START;
     private int _currentExerciseIndex = 0;
+    private boolean _isPaused = false;
     private List<Exercise> _exercises = ExerciseConfig.EXERCISES;
+    private List<ScheduledFuture> _futures = new LinkedList<ScheduledFuture>();
 
 
     /**
@@ -87,7 +90,10 @@ class ScreenControl extends ControlExtension {
                 onStartTrainingButtonClicked();
                 break;
             case R.id.pause_training_button:
-                Log.i(ua.org.zasadnyy.visiontrainer.ExtensionService.LOG_TAG, "PAUSE!!!");
+                onPauseButtonClicked();
+                break;
+            case R.id.next_exercise_button:
+                gotoNextExercise(false);
                 break;
             case R.id.restart_training_button:
                 onRestartButtonClicked();
@@ -95,10 +101,15 @@ class ScreenControl extends ControlExtension {
         }
     }
 
+
     private void onStartTrainingButtonClicked() {
         _currentAppScreen = AppScreen.EXERCISE;
         _currentExerciseIndex = 0;
         updateLayout();
+    }
+
+    private void onPauseButtonClicked() {
+        _isPaused = !_isPaused;
     }
 
     private void onRestartButtonClicked() {
@@ -164,12 +175,12 @@ class ScreenControl extends ControlExtension {
     }
 
     private void startExerciseTimer(int secondsDuration) {
-        int initialDelay = 1;
+        final int initialDelay = 1;
         final int[] countdown = {secondsDuration};
 
         final Runnable layoutUpdater = new Runnable() {
             public void run() {
-                if(countdown[0] >= 0) {
+                if (countdown[0] >= 0 && !_isPaused) {
                     Log.i(ua.org.zasadnyy.visiontrainer.ExtensionService.LOG_TAG, "Updating timer " + countdown[0]);
                     updateTimer(countdown[0]);
                     countdown[0]--;
@@ -177,19 +188,42 @@ class ScreenControl extends ControlExtension {
             }
         };
 
-        final ScheduledFuture beeperHandle = _scheduler.scheduleAtFixedRate(layoutUpdater, initialDelay, 1, TimeUnit.SECONDS);
-
         Runnable cancelTimer = new Runnable() {
             public void run() {
-                Log.i(ua.org.zasadnyy.visiontrainer.ExtensionService.LOG_TAG, "Finishing timer");
-                _currentExerciseIndex++;
-                startVibrator(500, 500, 1);
-                updateLayout();
-                beeperHandle.cancel(true);
+                if (countdown[0] < 0) {
+                    Log.i(ua.org.zasadnyy.visiontrainer.ExtensionService.LOG_TAG, "Finishing timer");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    gotoNextExercise(true);
+                }
             }
         };
 
-        _scheduler.schedule(cancelTimer, secondsDuration + initialDelay * 2, TimeUnit.SECONDS);
+        ScheduledFuture timerHandle = _scheduler.scheduleAtFixedRate(layoutUpdater, initialDelay, 1, TimeUnit.SECONDS);
+        _futures.add(timerHandle);
+
+        ScheduledFuture cancelHandler = _scheduler.scheduleAtFixedRate(cancelTimer, 0, 500, TimeUnit.MILLISECONDS);
+        _futures.add(cancelHandler);
+    }
+
+    private void gotoNextExercise(boolean vibrate) {
+        cancelTimers();
+
+        if(vibrate) {
+            startVibrator(500, 500, 1);
+        }
+        _currentExerciseIndex++;
+        updateLayout();
+    }
+
+    private void cancelTimers() {
+        for (ScheduledFuture future : _futures) {
+            future.cancel(true);
+        }
+        _futures.clear();
     }
 
     private void updateTimer(int countdown) {
