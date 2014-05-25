@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="@dimen/smart_watch_2_control_width"
+                android:layout_height="@dimen/smart_watch_2_control_height"
+                android:background="@android:color/darker_gray"
+                tools:ignore="ContentDescription,PxUsage" >
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="@string/welldone"
+            android:gravity="center"
+            android:textSize="@dimen/smart_watch_2_text_size_large"
+            android:layout_above="@+id/restart_training_button"
+            />
+
+    <TextView
+            android:id="@+id/restart_training_button"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="restart button"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:background="#ff99cc00"
+            android:clickable="true"/>
+
+</RelativeLayout>

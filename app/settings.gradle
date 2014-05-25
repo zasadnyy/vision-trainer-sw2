@@ -1,0 +1,3 @@
+include ':smartExtensionAPI'
+include ':smartExtensionUtils'
+include ':visionTraining'

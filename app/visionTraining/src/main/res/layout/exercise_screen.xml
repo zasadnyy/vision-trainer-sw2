@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="@dimen/smart_watch_2_control_width"
+                android:layout_height="@dimen/smart_watch_2_control_height"
+                android:background="@android:color/darker_gray"
+                tools:ignore="ContentDescription,PxUsage" >
+
+    <TextView
+            android:id="@+id/exercise_number"
+            android:layout_width="110px"
+            android:layout_height="@dimen/smart_watch_2_statusbar_height"
+            android:textSize="@dimen/smart_watch_2_text_size_medium"
+            android:textColor="#000000"
+            android:text="1/7"/>
+
+    <TextView
+            android:id="@+id/exercise_timer"
+            android:layout_width="110px"
+            android:layout_height="@dimen/smart_watch_2_statusbar_height"
+            android:textSize="@dimen/smart_watch_2_text_size_medium"
+            android:gravity="right"
+            android:text="23:00"
+            android:textColor="#000000"
+            android:layout_alignParentRight="true"/>
+
+    <TextView
+            android:id="@+id/exercise_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textSize="@dimen/smart_watch_2_text_size_large"
+            android:text="Winking"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:layout_above="@+id/pause_training_button"
+            />
+
+    <TextView
+            android:id="@+id/pause_training_button"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="pause button"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:background="#ff149dbb"
+            android:clickable="true"/>
+
+</RelativeLayout>
