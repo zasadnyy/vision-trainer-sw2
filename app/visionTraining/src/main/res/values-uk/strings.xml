@@ -26,15 +26,10 @@
 
     <string name="app_name">Зарядка для очей на Sony Smart Watch 2</string>
 
-    <!-- Title of preference activity -->
     <string name="preference_activity_title">Налаштування</string>
-    <!-- Name of extension, shown in preferences -->
     <string name="extension_name">Зарядка для очей на Sony SW 2</string>
-    <!-- Configuration title shown in preferences -->
     <string name="configuration_text">Налаштування</string>
-    <!-- Menu option shown in preferences -->
     <string name="preference_option_read_me">Про зарядку для очей...</string>
-    <!-- Read me text shown in dialog -->
     <string name="preference_option_read_me_txt">Щоб зняти зорову втому офтальмологи рекомендують робити зарядку для очей. Вправи для очей здатні покращити зір, якщо робити їх регулярно, один – два рази на день протягом 5-10 хвилин.</string>
 
     <string name="start_training">Почати тренування</string>
