@@ -1,3 +1,26 @@
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2014 Vitaliy Zasadnyy
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package ua.org.zasadnyy.visiontrainer;
 
 import android.content.Context;
@@ -9,6 +32,7 @@ import com.sonyericsson.extras.liveware.aef.control.Control;
 import com.sonyericsson.extras.liveware.extension.util.control.ControlExtension;
 import com.sonyericsson.extras.liveware.extension.util.control.ControlObjectClickEvent;
 
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -21,6 +45,8 @@ import ua.org.zasadnyy.visiontrainer.model.Exercise;
 class ScreenControl extends ControlExtension {
 
     public static final String TIMER_FORMAT = "%02d:%02d";
+    public static final int MIDDAY = 13;
+    public static final int SECONDS_IN_MINUTE = 60;
 
     public enum AppScreen {
         START, EXERCISE, FINISH
@@ -133,7 +159,24 @@ class ScreenControl extends ControlExtension {
     }
 
     private void renderStartScreen() {
-        showLayout(R.layout.welcome_screen, new Bundle[0]);
+        String itWillTakeOnly = mContext.getString(R.string.welcome_it_will_take_only, calculateTotalTrainingTime());
+
+        Bundle bundle1 = new Bundle();
+        bundle1.putInt(Control.Intents.EXTRA_LAYOUT_REFERENCE, R.id.welcome_training_time);
+        bundle1.putString(Control.Intents.EXTRA_TEXT, itWillTakeOnly);
+
+        Bundle[] bundleData = new Bundle[1];
+        bundleData[0] = bundle1;
+
+        showLayout(R.layout.welcome_screen, bundleData);
+    }
+
+    private int calculateTotalTrainingTime() {
+        int totalTimeSeconds = 0;
+        for (Exercise exercise : ExerciseConfig.EXERCISES) {
+            totalTimeSeconds += exercise.getSecondsDuration();
+        }
+        return totalTimeSeconds / SECONDS_IN_MINUTE;
     }
 
     private void renderExerciseScreen() {
@@ -144,7 +187,7 @@ class ScreenControl extends ControlExtension {
         }
 
         Exercise currentExercise = _exercises.get(_currentExerciseIndex);
-        String name = currentExercise.getName();
+        String name = mContext.getString(currentExercise.getName());
         String number = (_currentExerciseIndex + 1) + "/" + _exercises.size();
 
         Bundle bundle1 = new Bundle();
@@ -169,9 +212,20 @@ class ScreenControl extends ControlExtension {
     }
 
     private void renderFinishScreen() {
+        int sewYouResId = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < MIDDAY ?
+            R.string.see_you_in_the_evening : R.string.see_you_in_the_morning;
+        String seeYou = mContext.getString(sewYouResId);
+
+        Bundle bundle1 = new Bundle();
+        bundle1.putInt(Control.Intents.EXTRA_LAYOUT_REFERENCE, R.id.finish_see_you);
+        bundle1.putString(Control.Intents.EXTRA_TEXT, seeYou);
+
+        Bundle[] bundleData = new Bundle[1];
+        bundleData[0] = bundle1;
+
         setScreenState(Control.Intents.SCREEN_STATE_AUTO);
         startVibrator(500, 500, 2);
-        showLayout(R.layout.finish_screen, new Bundle[0]);
+        showLayout(R.layout.finish_screen, bundleData);
     }
 
     private void startExerciseTimer(int secondsDuration) {

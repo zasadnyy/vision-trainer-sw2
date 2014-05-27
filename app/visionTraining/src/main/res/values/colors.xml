@@ -23,7 +23,12 @@
   -->
 
 <resources>
-
-    <style name="ExtensionLightTheme" parent="@android:style/Theme.DeviceDefault.Light" />
-
+    <color name="main_text">#ff2e2e2e</color>
+    <color name="secondary_text">#ff5c5c5c</color>
+    <color name="statusbar_text">#fff</color>
+    <color name="statusbar_background">#ff585858</color>
+    <color name="green_button_background">#ff43c416</color>
+    <color name="red_button_background">#ffff2a28</color>
+    <color name="gray_button_background">#ff2c292b</color>
+    <color name="blue_button_background">#ff149dbb</color>
 </resources>
