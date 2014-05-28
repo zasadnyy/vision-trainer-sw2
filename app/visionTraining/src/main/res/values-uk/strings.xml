@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ The MIT License (MIT)
+  ~
+  ~ Copyright (c) 2014 Vitaliy Zasadnyy
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of
+  ~ this software and associated documentation files (the "Software"), to deal in
+  ~ the Software without restriction, including without limitation the rights to
+  ~ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+  ~ the Software, and to permit persons to whom the Software is furnished to do so,
+  ~ subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+  ~ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+  ~ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+  ~ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  ~ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="app_name">Зарядка для очей на Sony Smart Watch 2</string>
+
+    <string name="preference_activity_title">Налаштування</string>
+    <string name="extension_name">Зарядка для очей на Sony SW 2</string>
+    <string name="configuration_text">Налаштування</string>
+    <string name="preference_option_read_me">Про зарядку для очей...</string>
+    <string name="preference_option_read_me_txt">Щоб зняти зорову втому офтальмологи рекомендують робити зарядку для очей. Вправи для очей здатні покращити зір, якщо робити їх регулярно, один – два рази на день протягом 5-10 хвилин.</string>
+
+    <string name="start_training">Почати тренування</string>
+    <string name="welcome_it_will_take_only">Це займе всього %1$d хвилини</string>
+    <string name="see_you_in_the_evening">Побачимося ввечеры</string>
+    <string name="see_you_in_the_morning">Побачимося зранку</string>
+    <string name="welldone">Чудова робота!</string>
+
+    <string name="ex1_move_left_right">Рух направо-наліво</string>
+    <string name="ex2_move_up_down">Рух вверх-вниз</string>
+    <string name="ex3_cycles_clockwise">Кругові обороти за годинниковою стрілкою</string>
+    <string name="ex4_cycles_counterclockwise">Кругові обороти проти годинникової стрілки</string>
+    <string name="ex5_tough_open_close">Сильне зжимання і розкриття очей</string>
+    <string name="ex6_move_diagonal">Рух по діагоналях</string>
+    <string name="ex7_look_at_nose">Погляд на ніс</string>
+    <string name="ex8_quickly_open_close">Швидке моргання</string>
+    <string name="ex9_focus_faraway">Фокусування на відстані</string>
+
+    <string name="preference_licence">Ліцензія</string>
+    <string name="preference_app_version">Версія додатку: %1$s</string>
+    <string name="preference_about_author">© Віталій Засадний</string>
+
+</resources>

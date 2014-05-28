@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ The MIT License (MIT)
+  ~
+  ~ Copyright (c) 2014 Vitaliy Zasadnyy
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of
+  ~ this software and associated documentation files (the "Software"), to deal in
+  ~ the Software without restriction, including without limitation the rights to
+  ~ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+  ~ the Software, and to permit persons to whom the Software is furnished to do so,
+  ~ subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+  ~ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+  ~ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+  ~ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  ~ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="@dimen/smart_watch_2_control_width"
+                android:layout_height="@dimen/smart_watch_2_control_height"
+                android:background="@android:color/white"
+                tools:ignore="ContentDescription,PxUsage">
+
+    <TextView
+            android:id="@+id/welcome_start_training"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="@string/start_training"
+            android:textSize="@dimen/smart_watch_2_text_size_large"
+            android:gravity="center"
+            android:layout_marginTop="35px"
+            android:textColor="@color/main_text"/>
+
+    <TextView
+            android:id="@+id/welcome_training_time"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:text="@string/welcome_it_will_take_only"
+            android:textSize="@dimen/smart_watch_2_text_size_medium"
+            android:gravity="center"
+            android:layout_below="@+id/welcome_start_training"
+            android:textColor="@color/secondary_text"/>
+
+    <ImageView
+            android:id="@+id/start_training_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:src="@drawable/ic_action_av_play"
+            android:layout_alignParentBottom="true"
+            android:background="@color/green_button_background"
+            android:clickable="true"/>
+
+</RelativeLayout>
