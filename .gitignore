@@ -26,3 +26,4 @@ app/gradle/wrapper
 gradlew
 gradlew.bat
 *.iml
+publish/keystore

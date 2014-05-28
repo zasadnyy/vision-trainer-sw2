@@ -1,22 +1,44 @@
 apply plugin: 'android'
 
+dependencies {
+    compile project(':smartExtensionUtils')
+}
+
 android {
     compileSdkVersion 19
     buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 18
+        targetSdkVersion 19
+        versionName = "1.0"
+    }
+
+    signingConfigs {
+        release {
+        }
     }
 
     buildTypes {
         release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                def file = variant.outputFile
+                variant.outputFile = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
+            }
         }
     }
 }
 
-dependencies {
-    compile project(':smartExtensionUtils')
+if (project.hasProperty('signingStoreFilePath')
+        && project.hasProperty('signingStorePassword')
+        && project.hasProperty('signingKeyAlias')
+        && project.hasProperty('signingKeyPassword')) {
+
+    android.signingConfigs.release.storeFile = file(signingStoreFilePath)
+    android.signingConfigs.release.storePassword = signingStorePassword
+    android.signingConfigs.release.keyAlias = signingKeyAlias
+    android.signingConfigs.release.keyPassword = signingKeyPassword
+} else {
+    println '"Missing properties required for assembleRelease'
 }

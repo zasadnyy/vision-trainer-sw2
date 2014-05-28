@@ -45,7 +45,7 @@
             android:layout_height="@dimen/smart_watch_2_statusbar_height"
             android:textSize="@dimen/smart_watch_2_text_size_medium"
             android:gravity="right"
-            android:text="23:00"
+            android:text="00:43"
             android:textColor="@color/statusbar_text"
             android:background="@color/statusbar_background"
             android:layout_alignParentRight="true"
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:textSize="@dimen/smart_watch_2_text_size_large"
-            android:text="Winking"
+            android:text="Move eyes clockwise"
             android:gravity="center"
             android:textColor="@color/main_text"
             android:layout_above="@+id/buttons_layout" />
