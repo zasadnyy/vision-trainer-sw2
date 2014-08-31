@@ -45,8 +45,8 @@ import ua.org.zasadnyy.visiontrainer.model.Exercise;
 class ScreenControl extends ControlExtension {
 
     public static final String TIMER_FORMAT = "%02d:%02d";
-    public static final int MIDDAY = 13;
     public static final int SECONDS_IN_MINUTE = 60;
+    public static final int MIDDAY = 13;
 
     public enum AppScreen {
         START, EXERCISE, FINISH
