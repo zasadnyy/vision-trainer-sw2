@@ -21,15 +21,15 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.wear.controller;
+package ua.org.zasadnyy.visiontrainer.controller;
 
 import java.util.List;
 
-import ua.org.zasadnyy.visiontrainer.wear.ExerciseConfig;
-import ua.org.zasadnyy.visiontrainer.wear.UiUtils;
-import ua.org.zasadnyy.visiontrainer.wear.model.Exercise;
-import ua.org.zasadnyy.visiontrainer.wear.view.IVibratorHelper;
-import ua.org.zasadnyy.visiontrainer.wear.view.IWorkoutView;
+import ua.org.zasadnyy.visiontrainer.ExerciseConfig;
+import ua.org.zasadnyy.visiontrainer.utils.UiUtils;
+import ua.org.zasadnyy.visiontrainer.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.view.IVibratorHelper;
+import ua.org.zasadnyy.visiontrainer.view.IWorkoutView;
 
 /**
  * Created by vitaliyzasadnyy on 21.08.14.
@@ -96,8 +96,8 @@ public class WorkoutController {
     private void startTimer(final Exercise exercise) {
         long duration = exercise.getSecondsDuration() * UiUtils.MILISECONDS_IN_SECOND;
         long interval = UiUtils.MILISECONDS_IN_SECOND;
-        long preDelay = 2 * UiUtils.MILISECONDS_IN_SECOND;
-        long postDelay = UiUtils.MILISECONDS_IN_SECOND;
+        long preDelay = UiUtils.MILISECONDS_IN_SECOND;
+        long postDelay = UiUtils.MILISECONDS_IN_SECOND / 2;
 
         _countDownTimer.cancel();
         _countDownTimer.startDelayed(duration, interval, preDelay, postDelay);

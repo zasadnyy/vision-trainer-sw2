@@ -21,7 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.wear.view;
+package ua.org.zasadnyy.visiontrainer.wear;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -30,9 +30,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import ua.org.zasadnyy.visiontrainer.wear.R;
-import ua.org.zasadnyy.visiontrainer.wear.UiUtils;
-import ua.org.zasadnyy.visiontrainer.wear.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.R;
+import ua.org.zasadnyy.visiontrainer.utils.UiUtils;
+import ua.org.zasadnyy.visiontrainer.model.Exercise;
 
 /**
  * Created by vitaliyzasadnyy on 17.08.14.

@@ -21,11 +21,11 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.wear.view;
+package ua.org.zasadnyy.visiontrainer.view;
 
 import java.util.List;
 
-import ua.org.zasadnyy.visiontrainer.wear.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.model.Exercise;
 
 /**
  * Created by vitaliyzasadnyy on 21.08.14.

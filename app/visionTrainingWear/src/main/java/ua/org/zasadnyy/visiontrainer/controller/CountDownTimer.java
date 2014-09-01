@@ -21,7 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.wear.controller;
+package ua.org.zasadnyy.visiontrainer.controller;
 
 import android.os.Handler;
 import android.os.Message;

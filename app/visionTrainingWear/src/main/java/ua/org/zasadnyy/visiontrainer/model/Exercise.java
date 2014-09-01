@@ -21,7 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.wear.model;
+package ua.org.zasadnyy.visiontrainer.model;
 
 /**
  * Created by vitaliyzasadnyy on 25.05.14.

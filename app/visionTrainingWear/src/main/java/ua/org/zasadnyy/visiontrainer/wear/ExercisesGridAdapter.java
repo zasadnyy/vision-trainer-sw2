@@ -21,12 +21,11 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.wear.view;
+package ua.org.zasadnyy.visiontrainer.wear;
 
 import android.app.Activity;
 import android.content.Context;
 import android.support.wearable.view.GridPagerAdapter;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -34,8 +33,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ua.org.zasadnyy.visiontrainer.wear.R;
-import ua.org.zasadnyy.visiontrainer.wear.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.R;
+import ua.org.zasadnyy.visiontrainer.model.Exercise;
 
 /**
  * Created by vitaliyzasadnyy on 17.08.14.
@@ -54,7 +53,7 @@ public class ExercisesGridAdapter extends GridPagerAdapter {
 
     @Override
     public int getRowCount() {
-        return _exercises.size() + 1;
+        return _exercises.size();
     }
 
     @Override
@@ -64,23 +63,10 @@ public class ExercisesGridAdapter extends GridPagerAdapter {
 
     @Override
     protected Object instantiateItem(ViewGroup container, int row, int column) {
-        View view;
-
-        boolean isLastRow = row == getRowCount() - 1;
-        if (isLastRow) {
-            view = instantiateWelldoneView(container);
-        } else {
-            view = instantiateExerciseView(row);
-        }
-
+        View view = instantiateExerciseView(row);
         container.addView(view);
 
         return view;
-    }
-
-    private View instantiateWelldoneView(ViewGroup container) {
-        LayoutInflater inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        return inflater.inflate(R.layout.view_welldone, container, false);
     }
 
     private ExerciseView instantiateExerciseView(int row) {

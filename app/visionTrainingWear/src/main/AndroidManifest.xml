@@ -23,29 +23,30 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ua.org.zasadnyy.visiontrainer.wear" >
+          package="ua.org.zasadnyy.visiontrainer">
 
-    <uses-feature android:name="android.hardware.type.watch" />
+    <uses-feature android:name="android.hardware.type.watch"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.DeviceDefault" >
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.DeviceDefault">
         <activity
-            android:name=".WorkoutActivity"
-            android:label="@string/app_name" >
+                android:name=".wear.WorkoutActivity"
+                android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="com.google.android.voicesearch.TRACK" />
-                <data android:mimeType="vnd.google.fitness.activity/other" />
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="com.google.android.voicesearch.TRACK"/>
+                <data android:mimeType="vnd.google.fitness.activity/other"/>
             </intent-filter>
         </activity>
+        <activity android:name="android.support.wearable.activity.ConfirmationActivity"/>
     </application>
 
 </manifest>

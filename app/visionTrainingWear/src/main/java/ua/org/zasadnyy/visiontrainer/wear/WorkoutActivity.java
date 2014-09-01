@@ -25,19 +25,20 @@ package ua.org.zasadnyy.visiontrainer.wear;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.wearable.activity.ConfirmationActivity;
 import android.support.wearable.view.GridViewPager;
 import android.support.wearable.view.WatchViewStub;
 
 import java.util.List;
 
-import ua.org.zasadnyy.visiontrainer.wear.controller.WorkoutController;
-import ua.org.zasadnyy.visiontrainer.wear.model.Exercise;
-import ua.org.zasadnyy.visiontrainer.wear.view.ExerciseView;
-import ua.org.zasadnyy.visiontrainer.wear.view.ExercisesGridAdapter;
-import ua.org.zasadnyy.visiontrainer.wear.view.IVibratorHelper;
-import ua.org.zasadnyy.visiontrainer.wear.view.IWorkoutView;
+import ua.org.zasadnyy.visiontrainer.R;
+import ua.org.zasadnyy.visiontrainer.controller.WorkoutController;
+import ua.org.zasadnyy.visiontrainer.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.view.IVibratorHelper;
+import ua.org.zasadnyy.visiontrainer.view.IWorkoutView;
 
 public class WorkoutActivity extends Activity implements IWorkoutView, IVibratorHelper, GridViewPager.OnPageChangeListener {
 
@@ -68,7 +69,7 @@ public class WorkoutActivity extends Activity implements IWorkoutView, IVibrator
     @Override
     protected void onPause() {
         super.onPause();
-        if(_controller != null) {
+        if (_controller != null) {
             _controller.onPause();
         }
     }
@@ -94,24 +95,24 @@ public class WorkoutActivity extends Activity implements IWorkoutView, IVibrator
 
     @Override
     public void showWelldone() {
-        int column = 0;
-        int lastRow = _gridAdapter.getRowCount() - 1;
-        _exercisesGrid.setCurrentItem(lastRow, column, true);
+        Intent intent = new Intent(this, ConfirmationActivity.class);
+        intent.putExtra(ConfirmationActivity.EXTRA_ANIMATION_TYPE, ConfirmationActivity.SUCCESS_ANIMATION);
+        intent.putExtra(ConfirmationActivity.EXTRA_MESSAGE, getString(R.string.welldone));
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void vibrate(long[] pattern) {
-        if(_vibrator.hasVibrator()) {
+        if (_vibrator.hasVibrator()) {
             _vibrator.vibrate(pattern, DONT_REPEAT_VIBRATOR);
         }
     }
 
     @Override
     public void onPageSelected(int row, int column) {
-        if(row < _gridAdapter.getRowCount() - 1) {
-            Exercise exercise = _gridAdapter.getExerciseInRow(row);
-            _controller.onExerciseChanged(exercise);
-        }
+        Exercise exercise = _gridAdapter.getExerciseInRow(row);
+        _controller.onExerciseChanged(exercise);
     }
 
     @Override

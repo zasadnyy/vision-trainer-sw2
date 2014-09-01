@@ -21,14 +21,21 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.wear.view;
-
+package ua.org.zasadnyy.visiontrainer.utils;
 
 /**
- * Created by vitaliyzasadnyy on 22.08.14.
+ * Created by vitaliyzasadnyy on 17.08.14.
  */
-public interface IVibratorHelper {
+public final class UiUtils {
 
-    void vibrate(long[] pattern);
+    public static final String TIMER_FORMAT = "%02d:%02d";
+    public static final long SECONDS_IN_MINUTE = 60;
+    public static final long MILISECONDS_IN_SECOND = 1000;
+
+    public static String formatTimeLeft(long secondsDuration) {
+        long minutes = secondsDuration / SECONDS_IN_MINUTE;
+        long seconds = secondsDuration % SECONDS_IN_MINUTE;
+        return String.format(TIMER_FORMAT, minutes, seconds);
+    }
 
 }
