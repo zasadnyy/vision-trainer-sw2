@@ -1,4 +1,4 @@
-//include ':smartExtensionAPI'
-//include ':smartExtensionUtils'
+include ':smartExtensionAPI'
+include ':smartExtensionUtils'
 //include ':visionTraining'
 include ':visionTrainingWear'

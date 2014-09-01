@@ -33,8 +33,8 @@ android {
         targetCompatibility JavaVersion.VERSION_1_7
     }
     defaultConfig {
-        applicationId "ua.org.zasadnyy.visiontrainer.wear"
         minSdkVersion 20
+        applicationId "ua.org.zasadnyy.visiontrainer"
         targetSdkVersion 20
         versionCode 1
         versionName "1.0"
@@ -48,7 +48,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.android.support:wearable:+'
     compile 'com.google.android.gms:play-services-wearable:5.0.77'
 }
