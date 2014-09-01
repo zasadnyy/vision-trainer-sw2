@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ The MIT License (MIT)
   ~
@@ -22,18 +21,14 @@
   ~ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".WorkoutActivity"
-                tools:deviceIds="wear_round"
-                android:background="#ff149dbb">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ua.org.zasadnyy.visiontrainer.lib">
 
-    <android.support.wearable.view.GridViewPager
-            android:id="@+id/exercises_grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:keepScreenOn="true"/>
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+>
 
-</RelativeLayout>
+    </application>
+
+</manifest>

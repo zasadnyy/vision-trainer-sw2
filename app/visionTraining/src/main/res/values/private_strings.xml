@@ -22,18 +22,9 @@
   ~ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".WorkoutActivity"
-                tools:deviceIds="wear_round"
-                android:background="#ff149dbb">
-
-    <android.support.wearable.view.GridViewPager
-            android:id="@+id/exercises_grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:keepScreenOn="true"/>
-
-</RelativeLayout>
+<!-- Here we put strings that do not have to be translated. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="preference_key_read_me">preference_key_read_me</string>
+    <string name="preference_key_licence">preference_key_licence</string>
+    <string name="preference_key_about">preference_key_app_version</string>
+</resources>

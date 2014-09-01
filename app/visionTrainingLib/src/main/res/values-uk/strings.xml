@@ -22,18 +22,16 @@
   ~ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".WorkoutActivity"
-                tools:deviceIds="wear_round"
-                android:background="#ff149dbb">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
-    <android.support.wearable.view.GridViewPager
-            android:id="@+id/exercises_grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:keepScreenOn="true"/>
+    <string name="ex1_move_left_right">Рух направо-наліво</string>
+    <string name="ex2_move_up_down">Рух вверх-вниз</string>
+    <string name="ex3_cycles_clockwise">Кругові обороти за годинниковою стрілкою</string>
+    <string name="ex4_cycles_counterclockwise">Кругові обороти проти годинникової стрілки</string>
+    <string name="ex5_tough_open_close">Сильне зжимання і розкриття очей</string>
+    <string name="ex6_move_diagonal">Рух по діагоналях</string>
+    <string name="ex7_look_at_nose">Погляд на ніс</string>
+    <string name="ex8_quickly_open_close">Швидке моргання</string>
+    <string name="ex9_focus_faraway">Фокусування на відстані</string>
 
-</RelativeLayout>
+</resources>

@@ -21,34 +21,46 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-apply plugin: 'com.android.application'
+package ua.org.zasadnyy.visiontrainer.lib.model;
 
+/**
+ * Created by vitaliyzasadnyy on 25.05.14.
+ */
+public class Exercise {
 
-android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    private int _nameResId;
+    private int _secondsDuration;
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+    public Exercise(int nameResId, int secondsDuration) {
+        this._nameResId = nameResId;
+        this._secondsDuration = secondsDuration;
     }
-    defaultConfig {
-        minSdkVersion 20
-        applicationId "ua.org.zasadnyy.visiontrainer"
-        targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
 
-dependencies {
-    compile(project(":visionTrainingLib"))
-    compile 'com.google.android.support:wearable:+'
-    compile 'com.google.android.gms:play-services-wearable:5.0.77'
+    public int getName() {
+        return _nameResId;
+    }
+
+    public int getSecondsDuration() {
+        return _secondsDuration;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Exercise exercise = (Exercise) o;
+
+        if (_nameResId != exercise._nameResId) return false;
+        if (_secondsDuration != exercise._secondsDuration) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = _nameResId;
+        result = 31 * result + _secondsDuration;
+        return result;
+    }
 }

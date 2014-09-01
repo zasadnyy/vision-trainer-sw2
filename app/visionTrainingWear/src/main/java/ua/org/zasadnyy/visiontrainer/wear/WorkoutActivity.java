@@ -35,10 +35,10 @@ import android.support.wearable.view.WatchViewStub;
 import java.util.List;
 
 import ua.org.zasadnyy.visiontrainer.R;
-import ua.org.zasadnyy.visiontrainer.controller.WorkoutController;
-import ua.org.zasadnyy.visiontrainer.model.Exercise;
-import ua.org.zasadnyy.visiontrainer.view.IVibratorHelper;
-import ua.org.zasadnyy.visiontrainer.view.IWorkoutView;
+import ua.org.zasadnyy.visiontrainer.lib.controller.WorkoutController;
+import ua.org.zasadnyy.visiontrainer.lib.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.lib.view.IVibratorHelper;
+import ua.org.zasadnyy.visiontrainer.lib.view.IWorkoutView;
 
 public class WorkoutActivity extends Activity implements IWorkoutView, IVibratorHelper, GridViewPager.OnPageChangeListener {
 
@@ -54,6 +54,7 @@ public class WorkoutActivity extends Activity implements IWorkoutView, IVibrator
 
         setContentView(R.layout.activity_workout);
         _vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        _controller = new WorkoutController(WorkoutActivity.this, WorkoutActivity.this);
 
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
@@ -61,7 +62,7 @@ public class WorkoutActivity extends Activity implements IWorkoutView, IVibrator
             public void onLayoutInflated(WatchViewStub stub) {
                 _exercisesGrid = (GridViewPager) stub.findViewById(R.id.exercises_grid);
                 _exercisesGrid.setOnPageChangeListener(WorkoutActivity.this);
-                _controller = new WorkoutController(WorkoutActivity.this, WorkoutActivity.this);
+                _controller.onStartWorkout();
             }
         });
     }
@@ -69,9 +70,7 @@ public class WorkoutActivity extends Activity implements IWorkoutView, IVibrator
     @Override
     protected void onPause() {
         super.onPause();
-        if (_controller != null) {
-            _controller.onPause();
-        }
+        _controller.onCancelWorkout();
     }
 
     @Override

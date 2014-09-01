@@ -31,8 +31,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ua.org.zasadnyy.visiontrainer.R;
-import ua.org.zasadnyy.visiontrainer.utils.UiUtils;
-import ua.org.zasadnyy.visiontrainer.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.lib.utils.UiUtils;
+import ua.org.zasadnyy.visiontrainer.lib.model.Exercise;
 
 /**
  * Created by vitaliyzasadnyy on 17.08.14.

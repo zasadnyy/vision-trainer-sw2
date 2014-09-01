@@ -21,34 +21,23 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-apply plugin: 'com.android.application'
+package ua.org.zasadnyy.visiontrainer.lib.view;
 
+import java.util.List;
 
-android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+import ua.org.zasadnyy.visiontrainer.lib.model.Exercise;
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
-    }
-    defaultConfig {
-        minSdkVersion 20
-        applicationId "ua.org.zasadnyy.visiontrainer"
-        targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+/**
+ * Created by vitaliyzasadnyy on 21.08.14.
+ */
+public interface IWorkoutView {
 
-dependencies {
-    compile(project(":visionTrainingLib"))
-    compile 'com.google.android.support:wearable:+'
-    compile 'com.google.android.gms:play-services-wearable:5.0.77'
+    void setExercises(List<Exercise> exercises);
+
+    void gotoToExercise(Exercise exercise);
+
+    void updateTimer(Exercise exercise, long secondsLeft);
+
+    void showWelldone();
+
 }

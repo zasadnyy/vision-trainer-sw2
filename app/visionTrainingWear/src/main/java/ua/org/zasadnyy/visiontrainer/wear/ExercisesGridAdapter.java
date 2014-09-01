@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 import ua.org.zasadnyy.visiontrainer.R;
-import ua.org.zasadnyy.visiontrainer.model.Exercise;
+import ua.org.zasadnyy.visiontrainer.lib.model.Exercise;
 
 /**
  * Created by vitaliyzasadnyy on 17.08.14.

@@ -21,34 +21,31 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-apply plugin: 'com.android.application'
+package ua.org.zasadnyy.visiontrainer.lib;
+
+import java.util.Arrays;
+import java.util.List;
+
+import ua.org.zasadnyy.visiontrainer.lib.model.Exercise;
 
 
-android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+/**
+ * Created by vitaliyzasadnyy on 26.05.14.
+ */
+public final class ExerciseConfig {
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
-    }
-    defaultConfig {
-        minSdkVersion 20
-        applicationId "ua.org.zasadnyy.visiontrainer"
-        targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+    public static final int DEFAULT_EXERCISE_DURATION = 20;
 
-dependencies {
-    compile(project(":visionTrainingLib"))
-    compile 'com.google.android.support:wearable:+'
-    compile 'com.google.android.gms:play-services-wearable:5.0.77'
+    public static final List<Exercise> EXERCISES = Arrays.asList(
+        new Exercise(R.string.ex1_move_left_right, DEFAULT_EXERCISE_DURATION),
+        new Exercise(R.string.ex2_move_up_down, DEFAULT_EXERCISE_DURATION),
+        new Exercise(R.string.ex3_cycles_clockwise, DEFAULT_EXERCISE_DURATION),
+        new Exercise(R.string.ex4_cycles_counterclockwise, DEFAULT_EXERCISE_DURATION),
+        new Exercise(R.string.ex5_tough_open_close, DEFAULT_EXERCISE_DURATION),
+        new Exercise(R.string.ex6_move_diagonal, DEFAULT_EXERCISE_DURATION * 2),
+        new Exercise(R.string.ex7_look_at_nose, DEFAULT_EXERCISE_DURATION),
+        new Exercise(R.string.ex8_quickly_open_close, DEFAULT_EXERCISE_DURATION),
+        new Exercise(R.string.ex9_focus_faraway, DEFAULT_EXERCISE_DURATION)
+    );
+
 }

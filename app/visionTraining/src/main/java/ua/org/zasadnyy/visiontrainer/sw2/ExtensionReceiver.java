@@ -21,34 +21,24 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-apply plugin: 'com.android.application'
+package ua.org.zasadnyy.visiontrainer.sw2;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
-android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+/**
+ * The extension receiver receives the extension intents and starts the
+ * extension service when they arrive.
+ */
+public class ExtensionReceiver extends BroadcastReceiver {
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+    @Override
+    public void onReceive(final Context context, final Intent intent) {
+
+        Log.d(ExtensionService.LOG_TAG, "onReceive: " + intent.getAction());
+        intent.setClass(context, ExtensionService.class);
+        context.startService(intent);
     }
-    defaultConfig {
-        minSdkVersion 20
-        applicationId "ua.org.zasadnyy.visiontrainer"
-        targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-dependencies {
-    compile(project(":visionTrainingLib"))
-    compile 'com.google.android.support:wearable:+'
-    compile 'com.google.android.gms:play-services-wearable:5.0.77'
 }

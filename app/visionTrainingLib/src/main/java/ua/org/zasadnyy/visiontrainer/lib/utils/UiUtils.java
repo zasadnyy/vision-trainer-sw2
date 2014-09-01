@@ -21,34 +21,21 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-apply plugin: 'com.android.application'
+package ua.org.zasadnyy.visiontrainer.lib.utils;
 
+/**
+ * Created by vitaliyzasadnyy on 17.08.14.
+ */
+public final class UiUtils {
 
-android {
-    compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    public static final String TIMER_FORMAT = "%02d:%02d";
+    public static final long SECONDS_IN_MINUTE = 60;
+    public static final long MILISECONDS_IN_SECOND = 1000;
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+    public static String formatTimeLeft(long secondsDuration) {
+        long minutes = secondsDuration / SECONDS_IN_MINUTE;
+        long seconds = secondsDuration % SECONDS_IN_MINUTE;
+        return String.format(TIMER_FORMAT, minutes, seconds);
     }
-    defaultConfig {
-        minSdkVersion 20
-        applicationId "ua.org.zasadnyy.visiontrainer"
-        targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
 
-dependencies {
-    compile(project(":visionTrainingLib"))
-    compile 'com.google.android.support:wearable:+'
-    compile 'com.google.android.gms:play-services-wearable:5.0.77'
 }
