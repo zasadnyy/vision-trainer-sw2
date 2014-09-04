@@ -21,7 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer;
+package ua.org.zasadnyy.visiontrainer.sw2;
 
 import android.os.Handler;
 import android.util.Log;
@@ -41,7 +41,7 @@ public class ExtensionService extends com.sonyericsson.extras.liveware.extension
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(ua.org.zasadnyy.visiontrainer.ExtensionService.LOG_TAG, "onCreate: ExtensionService");
+        Log.d(ExtensionService.LOG_TAG, "onCreate: ExtensionService");
     }
 
     @Override
@@ -59,7 +59,7 @@ public class ExtensionService extends com.sonyericsson.extras.liveware.extension
         // First we check if the host application API level and screen size
         // is supported by the extension.
         boolean advancedFeaturesSupported = DeviceInfoHelper.isSmartWatch2ApiAndScreenDetected(
-                this, hostAppPackageName);
+            this, hostAppPackageName);
         if (advancedFeaturesSupported) {
             return new ScreenControl(hostAppPackageName, this, new Handler());
         } else {

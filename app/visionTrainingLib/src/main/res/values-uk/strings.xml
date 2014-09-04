@@ -24,21 +24,14 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
-    <string name="app_name">Eyes Exercises</string>
-    <string name="extension_name">Eyes Exercises</string>
-
-    <string name="configuration_text">Eyes Exercises Settings</string>
-    <string name="preference_activity_title">Settings</string>
-    <string name="preference_option_read_me">About Eyes Exercises</string>
-    <string name="preference_option_read_me_txt">Eyes exercises, also known as vision training, is used to improve vision skills such as eye movement control and eye coordination. It involves a series of procedures carried out in both home and office settings, usually under professional supervision by an orthoptist or optometrist.</string>
-    <string name="preference_app_version">App Version: %1$s</string>
-    <string name="preference_about_author">© Vitaliy Zasadnyy</string>
-    <string name="preference_licence">Licence</string>
-
-    <string name="start_training">Start Exercises</string>
-    <string name="welcome_it_will_take_only">It will take only %1$d minutes</string>
-    <string name="see_you_in_the_evening">See you in the evening</string>
-    <string name="see_you_in_the_morning">See you in the morning</string>
-    <string name="welldone">Well Done!</string>
+    <string name="ex1_move_left_right">Рух направо-наліво</string>
+    <string name="ex2_move_up_down">Рух вверх-вниз</string>
+    <string name="ex3_cycles_clockwise">Кругові обороти за годинниковою стрілкою</string>
+    <string name="ex4_cycles_counterclockwise">Кругові обороти проти годинникової стрілки</string>
+    <string name="ex5_tough_open_close">Сильне зжимання і розкриття очей</string>
+    <string name="ex6_move_diagonal">Рух по діагоналях</string>
+    <string name="ex7_look_at_nose">Погляд на ніс</string>
+    <string name="ex8_quickly_open_close">Швидке моргання</string>
+    <string name="ex9_focus_faraway">Фокусування на відстані</string>
 
 </resources>

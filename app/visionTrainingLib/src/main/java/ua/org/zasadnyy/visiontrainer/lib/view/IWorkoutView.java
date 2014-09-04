@@ -21,26 +21,23 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer.model;
+package ua.org.zasadnyy.visiontrainer.lib.view;
+
+import java.util.List;
+
+import ua.org.zasadnyy.visiontrainer.lib.model.Exercise;
 
 /**
- * Created by vitaliyzasadnyy on 25.05.14.
+ * Created by vitaliyzasadnyy on 21.08.14.
  */
-public class Exercise {
+public interface IWorkoutView {
 
-    private int _nameResId;
-    private int _secondsDuration;
+    void setExercises(List<Exercise> exercises);
 
-    public Exercise(int nameResId, int secondsDuration) {
-        this._nameResId = nameResId;
-        this._secondsDuration = secondsDuration;
-    }
+    void gotoToExercise(Exercise exercise);
 
-    public int getName() {
-        return _nameResId;
-    }
+    void updateTimer(Exercise exercise, long secondsLeft);
 
-    public int getSecondsDuration() {
-        return _secondsDuration;
-    }
+    void showWelldone();
+
 }

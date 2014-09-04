@@ -21,7 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer;
+package ua.org.zasadnyy.visiontrainer.sw2;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -33,6 +33,9 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.util.Log;
+
+import ua.org.zasadnyy.visiontrainer.BuildConfig;
+import ua.org.zasadnyy.visiontrainer.R;
 
 
 /**
@@ -80,7 +83,7 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
                 dialog = createReadMeDialog();
                 break;
             default:
-                Log.w(ua.org.zasadnyy.visiontrainer.ExtensionService.LOG_TAG, "Not a valid dialog id: " + id);
+                Log.w(ExtensionService.LOG_TAG, "Not a valid dialog id: " + id);
                 break;
         }
 
@@ -95,15 +98,15 @@ public class PreferenceActivity extends android.preference.PreferenceActivity {
     private Dialog createReadMeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.preference_option_read_me_txt)
-                .setTitle(R.string.preference_option_read_me)
-                .setIcon(android.R.drawable.ic_dialog_info)
-                .setPositiveButton(android.R.string.ok, new OnClickListener() {
+            .setTitle(R.string.preference_option_read_me)
+            .setIcon(android.R.drawable.ic_dialog_info)
+            .setPositiveButton(android.R.string.ok, new OnClickListener() {
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
         return builder.create();
     }
 

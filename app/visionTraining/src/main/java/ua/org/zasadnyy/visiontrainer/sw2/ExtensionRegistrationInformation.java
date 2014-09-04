@@ -21,7 +21,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer;
+package ua.org.zasadnyy.visiontrainer.sw2;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -34,14 +34,17 @@ import com.sonyericsson.extras.liveware.extension.util.registration.Registration
 
 import java.util.UUID;
 
+import ua.org.zasadnyy.visiontrainer.R;
+
 /**
  * Provides information needed during extension registration.
  */
 public class ExtensionRegistrationInformation extends RegistrationInformation {
 
-    final Context mContext;
-    private String extensionKey;
     private static final String EXTENSION_KEY_PREF = "EXTENSION_KEY_PREF";
+
+    private final Context _context;
+    private String _extensionKey;
 
 
     /**
@@ -53,7 +56,7 @@ public class ExtensionRegistrationInformation extends RegistrationInformation {
         if (context == null) {
             throw new IllegalArgumentException("context == null");
         }
-        mContext = context;
+        _context = context;
     }
 
     @Override
@@ -96,59 +99,56 @@ public class ExtensionRegistrationInformation extends RegistrationInformation {
      */
     @Override
     public ContentValues getExtensionRegistrationConfiguration() {
-        String iconHostapp = ExtensionUtils.getUriString(mContext, R.drawable.ic_launcher);
-        String iconExtension = ExtensionUtils.getUriString(mContext, R.drawable.ic_extension);
-        String iconExtension48 = ExtensionUtils.getUriString(mContext, R.drawable.ic_extension48);
-//        String iconExtensionBw = ExtensionUtils.getUriString(mContext,
-//            R.drawable.icn_18x18_black_white_sample_control);
+        String iconHostApp = ExtensionUtils.getUriString(_context, R.drawable.ic_launcher);
+        String iconExtension = ExtensionUtils.getUriString(_context, R.drawable.ic_extension);
+        String iconExtension48 = ExtensionUtils.getUriString(_context, R.drawable.ic_extension48);
 
         ContentValues values = new ContentValues();
 
         values.put(Registration.ExtensionColumns.CONFIGURATION_ACTIVITY,
             PreferenceActivity.class.getName());
         values.put(Registration.ExtensionColumns.CONFIGURATION_TEXT,
-            mContext.getString(R.string.configuration_text));
-        values.put(Registration.ExtensionColumns.NAME, mContext.getString(R.string.extension_name));
+            _context.getString(R.string.configuration_text));
+        values.put(Registration.ExtensionColumns.NAME, _context.getString(R.string.extension_name));
         values.put(Registration.ExtensionColumns.EXTENSION_KEY, getExtensionKey());
-        values.put(Registration.ExtensionColumns.HOST_APP_ICON_URI, iconHostapp);
+        values.put(Registration.ExtensionColumns.HOST_APP_ICON_URI, iconHostApp);
         values.put(Registration.ExtensionColumns.EXTENSION_ICON_URI, iconExtension);
         values.put(Registration.ExtensionColumns.EXTENSION_48PX_ICON_URI, iconExtension48);
-//        values.put(Registration.ExtensionColumns.EXTENSION_ICON_URI_BLACK_WHITE, iconExtensionBw);
         values.put(Registration.ExtensionColumns.NOTIFICATION_API_VERSION,
             getRequiredNotificationApiVersion());
-        values.put(Registration.ExtensionColumns.PACKAGE_NAME, mContext.getPackageName());
+        values.put(Registration.ExtensionColumns.PACKAGE_NAME, _context.getPackageName());
 
         return values;
     }
 
     @Override
     public boolean isDisplaySizeSupported(int width, int height) {
-        return (width == ScreenControl.getSupportedControlWidth(mContext) && height == ScreenControl
-            .getSupportedControlHeight(mContext));
+        return (width == ScreenControl.getSupportedControlWidth(_context) && height == ScreenControl
+            .getSupportedControlHeight(_context));
     }
 
     /**
-     * A basic implementation of getExtensionKey
+     * A basic implementation of get_extensionKey
      * Returns and saves a random string based on UUID.randomUUID()
      * <p/>
      * Note that this implementation doesn't guarantee random numbers on Android 4.3 and older. See <a href="https://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html">https://android-developers.blogspot.com/2013/08/some-securerandom-thoughts.html</a>
      *
      * @return A saved key if it exists, otherwise a randomly generated one.
-     * @see com.sonyericsson.extras.liveware.extension.util.registration.RegistrationInformation#getExtensionKey()
+     * @see com.sonyericsson.extras.liveware.extension.util.registration.RegistrationInformation#get_extensionKey()
      */
     @Override
     public synchronized String getExtensionKey() {
-        if (TextUtils.isEmpty(extensionKey)) {
+        if (TextUtils.isEmpty(_extensionKey)) {
             // Retrieve key from preferences
-            SharedPreferences pref = mContext.getSharedPreferences(EXTENSION_KEY_PREF,
+            SharedPreferences pref = _context.getSharedPreferences(EXTENSION_KEY_PREF,
                 Context.MODE_PRIVATE);
-            extensionKey = pref.getString(EXTENSION_KEY_PREF, null);
-            if (TextUtils.isEmpty(extensionKey)) {
+            _extensionKey = pref.getString(EXTENSION_KEY_PREF, null);
+            if (TextUtils.isEmpty(_extensionKey)) {
                 // Generate a random key if not found
-                extensionKey = UUID.randomUUID().toString();
-                pref.edit().putString(EXTENSION_KEY_PREF, extensionKey).commit();
+                _extensionKey = UUID.randomUUID().toString();
+                pref.edit().putString(EXTENSION_KEY_PREF, _extensionKey).commit();
             }
         }
-        return extensionKey;
+        return _extensionKey;
     }
 }

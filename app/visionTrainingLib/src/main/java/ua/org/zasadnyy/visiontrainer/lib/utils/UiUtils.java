@@ -21,30 +21,21 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ua.org.zasadnyy.visiontrainer;
-
-import java.util.Arrays;
-import java.util.List;
-
-import ua.org.zasadnyy.visiontrainer.model.Exercise;
+package ua.org.zasadnyy.visiontrainer.lib.utils;
 
 /**
- * Created by vitaliyzasadnyy on 26.05.14.
+ * Created by vitaliyzasadnyy on 17.08.14.
  */
-public final class ExerciseConfig {
+public final class UiUtils {
 
-    public static final int DEFAULT_EXERCISE_DURATION = 20;
+    public static final String TIMER_FORMAT = "%02d:%02d";
+    public static final long SECONDS_IN_MINUTE = 60;
+    public static final long MILISECONDS_IN_SECOND = 1000;
 
-    public static final List<Exercise> EXERCISES = Arrays.asList(
-        new Exercise(R.string.ex1_move_left_right, DEFAULT_EXERCISE_DURATION),
-        new Exercise(R.string.ex2_move_up_down, DEFAULT_EXERCISE_DURATION),
-        new Exercise(R.string.ex3_cycles_clockwise, DEFAULT_EXERCISE_DURATION),
-        new Exercise(R.string.ex4_cycles_counterclockwise, DEFAULT_EXERCISE_DURATION),
-        new Exercise(R.string.ex5_tough_open_close, DEFAULT_EXERCISE_DURATION),
-        new Exercise(R.string.ex6_move_diagonal, DEFAULT_EXERCISE_DURATION * 2),
-        new Exercise(R.string.ex7_look_at_nose, DEFAULT_EXERCISE_DURATION),
-        new Exercise(R.string.ex8_quickly_open_close, DEFAULT_EXERCISE_DURATION),
-        new Exercise(R.string.ex9_focus_faraway, DEFAULT_EXERCISE_DURATION)
-    );
+    public static String formatTimeLeft(long secondsDuration) {
+        long minutes = secondsDuration / SECONDS_IN_MINUTE;
+        long seconds = secondsDuration % SECONDS_IN_MINUTE;
+        return String.format(TIMER_FORMAT, minutes, seconds);
+    }
 
 }

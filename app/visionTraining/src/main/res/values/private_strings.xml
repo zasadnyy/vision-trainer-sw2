@@ -22,23 +22,9 @@
   ~ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   -->
 
+<!-- Here we put strings that do not have to be translated. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-
-    <string name="app_name">Eyes Exercises</string>
-    <string name="extension_name">Eyes Exercises</string>
-
-    <string name="configuration_text">Eyes Exercises Settings</string>
-    <string name="preference_activity_title">Settings</string>
-    <string name="preference_option_read_me">About Eyes Exercises</string>
-    <string name="preference_option_read_me_txt">Eyes exercises, also known as vision training, is used to improve vision skills such as eye movement control and eye coordination. It involves a series of procedures carried out in both home and office settings, usually under professional supervision by an orthoptist or optometrist.</string>
-    <string name="preference_app_version">App Version: %1$s</string>
-    <string name="preference_about_author">© Vitaliy Zasadnyy</string>
-    <string name="preference_licence">Licence</string>
-
-    <string name="start_training">Start Exercises</string>
-    <string name="welcome_it_will_take_only">It will take only %1$d minutes</string>
-    <string name="see_you_in_the_evening">See you in the evening</string>
-    <string name="see_you_in_the_morning">See you in the morning</string>
-    <string name="welldone">Well Done!</string>
-
+    <string name="preference_key_read_me">preference_key_read_me</string>
+    <string name="preference_key_licence">preference_key_licence</string>
+    <string name="preference_key_about">preference_key_app_version</string>
 </resources>

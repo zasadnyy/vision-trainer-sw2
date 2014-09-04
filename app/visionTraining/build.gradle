@@ -1,16 +1,18 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 dependencies {
     compile project(':smartExtensionUtils')
+    compile project(':visionTrainingLib')
+    wearApp project(':visionTrainingWear')
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
 
     defaultConfig {
-        minSdkVersion 7
-        targetSdkVersion 19
+        minSdkVersion 17
+        targetSdkVersion 20
         versionName = "1.0"
     }
 
