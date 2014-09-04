@@ -1,9 +1,9 @@
-# Eyes Exersices for Sony Smart Watch 2
+# Eyes Exercises for SW2 and Android Wear
 
 
 ![image](https://raw.githubusercontent.com/zasadnyy/vision-trainer-sw2/master/app/visionTraining/src/main/res/drawable-xhdpi/ic_launcher.png)
 
-Simple app for your Sony SmartWatch 2 to improve your vision.
+Simple app for your Sony SmartWatch 2  or Android Wear powered devices to improve your vision.
 
 Eyes exercises, also known as vision training, is used to improve vision skills such as eye movement control and eye coordination. It involves a series of procedures carried out in both home and office settings, usually under professional supervision by an orthoptist or optometrist. Training will take only 3-10 minutes.
 
